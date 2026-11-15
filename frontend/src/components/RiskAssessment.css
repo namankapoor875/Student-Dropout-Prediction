@@ -1,0 +1,356 @@
+/* =============================================
+   Risk Assessment — Visual-first, chart-heavy
+   ============================================= */
+
+.risk-assessment {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ---- Verdict Card ---- */
+.verdict-card {
+  background: var(--paper-card);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.verdict-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+}
+
+.verdict-card.verdict-high::before { background: var(--danger); }
+.verdict-card.verdict-low::before { background: var(--sage); }
+.verdict-card.verdict-medium::before { background: var(--gold); }
+
+.verdict-layout {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.gauge-wrapper {
+  flex: 0 0 200px;
+  height: 200px;
+}
+
+.verdict-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.verdict-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+
+.verdict-icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.icon-high { background: var(--danger-bg); color: var(--danger); }
+.icon-low { background: var(--sage-bg); color: var(--sage); }
+.icon-medium { background: var(--gold-bg); color: var(--gold); }
+
+.verdict-title {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+}
+
+.text-dropout { color: var(--danger); }
+.text-graduate { color: var(--sage); }
+
+.verdict-subtitle {
+  font-size: 0.88rem;
+  color: var(--ink-muted);
+  margin: 0;
+}
+
+.verdict-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-top: 4px;
+}
+
+.label-high { background: var(--danger-bg); color: var(--danger); }
+.label-low { background: var(--sage-bg); color: var(--sage); }
+.label-medium { background: var(--gold-bg); color: var(--gold); }
+
+/* ---- Stats Row ---- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.stat-card {
+  background: var(--paper-card);
+  border-radius: var(--radius-md);
+  padding: 1.1rem 1rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 6px;
+}
+
+.stat-card-visual {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stat-card-label {
+  font-size: 0.68rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.stat-card-value {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* ---- Chart Cards ---- */
+.chart-card {
+  background: var(--paper-card);
+  border-radius: var(--radius-lg);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--border);
+}
+
+.chart-card h3 {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.chart-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.chart-card-badge {
+  font-size: 0.7rem;
+  color: var(--ink-muted);
+  background: var(--paper-alt);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-weight: 500;
+}
+
+.chart-bar-wrapper {
+  margin: 0 -0.5rem;
+}
+
+/* Chart Tooltip */
+.chart-tooltip {
+  background: var(--paper-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  box-shadow: var(--shadow-md);
+  font-size: 0.82rem;
+}
+
+.chart-tooltip-name {
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+
+.chart-tooltip-value {
+  color: var(--ink-light);
+  margin: 0;
+}
+
+.chart-tooltip-value strong {
+  color: var(--accent);
+}
+
+.chart-tooltip-meta {
+  color: var(--ink-muted);
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+/* ---- Bottom Row ---- */
+.bottom-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.chart-card-small {
+  padding: 1.25rem;
+}
+
+.chart-card-small h3 {
+  margin-bottom: 0.75rem;
+}
+
+.severity-chart-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.severity-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.severity-legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  color: var(--ink-light);
+}
+
+.severity-legend-item strong {
+  color: var(--ink);
+  margin-left: auto;
+  font-family: var(--font-heading);
+}
+
+.severity-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* Recommendation */
+.recommendation-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.recommendation-text {
+  font-size: 0.92rem;
+  color: var(--ink);
+  line-height: 1.6;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.model-output-text {
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  line-height: 1.5;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border-light);
+  margin-top: auto;
+}
+
+/* ---- Actions ---- */
+.results-actions {
+  display: flex;
+  justify-content: center;
+  padding-top: 0.5rem;
+}
+
+.restart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 24px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink-light);
+  background: var(--paper-alt);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.restart-btn:hover {
+  background: var(--border-light);
+  color: var(--ink);
+}
+
+.restart-btn svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .verdict-layout {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .verdict-info {
+    align-items: center;
+  }
+
+  .gauge-wrapper {
+    flex: none;
+    width: 100%;
+  }
+
+  .stats-row {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom-row {
+    grid-template-columns: 1fr;
+  }
+
+  .severity-chart-wrapper {
+    flex-direction: column;
+  }
+
+  .verdict-card {
+    padding: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .verdict-title {
+    font-size: 1.4rem;
+  }
+}
